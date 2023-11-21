@@ -9,7 +9,6 @@ global_gas_price = None
 
 def interactWeb3(web3, nonce, gas_price, chainId, chainName, adress, data, private_key, gas_limit, multiple):
     print(f'公链：{chainName}   钱包地址：{adress}')
-    # gas_price = web3.eth.gas_price
     print(f'当前gas价格:{gas_price / 1_000_000_000} gwei')
     currentGas = int(gas_price / 1_000_000_000)
     if gas_limit != '' and currentGas > int(gas_limit):
@@ -26,11 +25,6 @@ def interactWeb3(web3, nonce, gas_price, chainId, chainName, adress, data, priva
             'value': Web3.to_wei(0, 'ether'),
             'gas':22200
         }
-        # nonce = web3.eth.get_transaction_count(adress)
-        # tx['nonce'] = nonce
-        # gas = web3.eth.estimate_gas(tx)
-        # tx['gas'] = gas
-        # tx['gas'] = 22200
         print(f"交易消耗代币数量：{(tx['gasPrice'] / 1_000_000_000 * tx['gas']) / 1_000_000_000}")
         signed_tx = web3.eth.account.sign_transaction(tx, private_key)
         tx_hash = web3.eth.send_raw_transaction(signed_tx.rawTransaction)
@@ -87,7 +81,6 @@ def mint(pwd):
         while True:
             try:
                 if times != 0 and times % 100 == 0:
-                    print(f'time*100:{times}')
                     global_nonce = web3.eth.get_transaction_count(adress)
                     global_gas_price = web3.eth.gas_price
                 else:
