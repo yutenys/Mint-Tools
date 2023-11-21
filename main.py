@@ -40,7 +40,7 @@ def main():
             else:
                 print("请输入正确的指令！")
         except Exception as e:
-            print(f'ERROR111:{e}')
+            print(f'Main ERROR:{e}')
 
 if __name__ == '__main__':
     main()

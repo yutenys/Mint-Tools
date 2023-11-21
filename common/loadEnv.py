@@ -24,7 +24,7 @@ def loadDate():
     rpc = json.loads(os.environ.get('rpc_url'))[chainName]
     chainId = json.loads(os.environ.get('chain_id'))[chainName]
     gas_limit = os.environ.get('gas_limit')
-    multiple = float(os.environ.get('multiple'))
+    mulriple = float(os.environ.get('mulriple'))
 
     data = os.environ.get('data')
     if data.startswith('0x'):
@@ -36,5 +36,4 @@ def loadDate():
         print(f'原始铭文信息：{data}')
         data = transferStr.encodeHex(data)
         print(f'十六进制铭文信息：{data}')
-
-    return delay, num, privateKey_env, adress, rpc, chainId, chainName, data, gas_limit, multiple
+    return delay, num, privateKey_env, adress, rpc, chainId, chainName, data, gas_limit, mulriple
