@@ -1,5 +1,7 @@
 # Mint-Tools 是链上批量Mint工具
 
+有任何问题或者想法，请关注微信公众号：python玩转
+
 1. python 安装 ： https://mirror.xyz/arant.eth/oy7DqPbsd1ySahHkqAkA7aaoX0efyI91YrPEb282Hl4
 
 2. 使用说明请参照：  https://mirror.xyz/arant.eth/LdzJmoLXp59YCGJSrcWHm0nTArX1uC4dkNHoPcegc2w
