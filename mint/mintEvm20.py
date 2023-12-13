@@ -47,15 +47,20 @@ def mint(pwd):
     times = 0
 
     if num != '':
-        n = 0
-        while n < int(num):
+       # n = 0
+        while success < int(num):
+            web31 = Web3(Web3.HTTPProvider(rpc))
             try:
                 if times != 0 and times % 100 == 0:
-                    global_nonce = web3.eth.get_transaction_count(adress)
-                    global_gas_price = web3.eth.gas_price
+                    global_nonce = web31.eth.get_transaction_count(adress)
+                    global_gas_price = web31.eth.gas_price
+
                 else:
+                    global_nonce = web31.eth.get_transaction_count(adress)
+                    global_gas_price = web31.eth.gas_price
+
                     print('global_nonce:',global_nonce)
-                    receipt = interactWeb3(web3, global_nonce, global_gas_price, chainId, chainName, adress, data, private_key,
+                    receipt = interactWeb3(web31, global_nonce, global_gas_price, chainId, chainName, adress, data, private_key,
                                            gas_limit,
                                            mulriple)
                     if receipt == -1:
@@ -72,7 +77,7 @@ def mint(pwd):
                 else:
                     print(f'Mint ERROR:{e}')
                 failed += 1
-            n += 1
+            #n += 1
             times += 1
             global_nonce += 1
             print(F'{success} Success,{failed} Failed!\n\n')
